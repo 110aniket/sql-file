@@ -1,0 +1,17 @@
+-- Show all violations with driver and vehicle info
+SELECT d.name, v.license_plate, vl.violation_type, vl.violation_date, vl.fine_amount, vl.is_paid
+FROM Violations vl
+JOIN Vehicles v ON vl.vehicle_id = v.vehicle_id
+JOIN Drivers d ON v.driver_id = d.driver_id;
+
+-- Count of total unpaid fines per driver
+SELECT d.name, SUM(vl.fine_amount) AS total_unpaid
+FROM Drivers d
+JOIN Vehicles v ON d.driver_id = v.driver_id
+JOIN Violations vl ON v.vehicle_id = vl.vehicle_id
+WHERE vl.is_paid = FALSE
+GROUP BY d.name;
+
+-- List of violations for a specific vehicle
+SELECT violation_type, fine_amount FROM Violations
+WHERE vehicle_id = 101;

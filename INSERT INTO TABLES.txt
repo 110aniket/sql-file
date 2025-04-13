@@ -1,0 +1,14 @@
+INSERT INTO Drivers VALUES
+(1, 'Ravi Kumar', 'DL12345', 32),
+(2, 'Meena Roy', 'DL67890', 28),
+(3, 'Amit Sharma', 'DL54321', 40);
+
+INSERT INTO Vehicles VALUES
+(101, 'WB20AB1234', 1, 'Car'),
+(102, 'WB45CD5678', 2, 'Bike'),
+(103, 'WB10EF9012', 3, 'Truck');
+
+INSERT INTO Violations VALUES
+(1001, 101, 'Speeding', '2024-10-10', 500.00, FALSE),
+(1002, 102, 'No Helmet', '2024-10-12', 300.00, TRUE),
+(1003, 101, 'Signal Jump', '2024-10-14', 700.00, FALSE);

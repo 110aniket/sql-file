@@ -1,0 +1,24 @@
+CREATE TABLE Drivers (
+    driver_id INT PRIMARY KEY,
+    name VARCHAR(100),
+    license_no VARCHAR(50),
+    age INT
+);
+
+CREATE TABLE Vehicles (
+    vehicle_id INT PRIMARY KEY,
+    license_plate VARCHAR(20),
+    driver_id INT,
+    vehicle_type VARCHAR(50),
+    FOREIGN KEY (driver_id) REFERENCES Drivers(driver_id)
+);
+
+CREATE TABLE Violations (
+    violation_id INT PRIMARY KEY,
+    vehicle_id INT,
+    violation_type VARCHAR(100),
+    violation_date DATE,
+    fine_amount DECIMAL(10,2),
+    is_paid BOOLEAN,
+    FOREIGN KEY (vehicle_id) REFERENCES Vehicles(vehicle_id)
+);
